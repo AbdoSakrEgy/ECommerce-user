@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.HeroBackground{
+  background-image: url("/src/assets/img/bg_hero.svg");
+}
