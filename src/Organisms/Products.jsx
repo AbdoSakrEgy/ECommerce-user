@@ -20,7 +20,7 @@ export default function Products() {
         {allProductsError ? (
           <div>Oh no, there was an error</div>
         ) : allProductsIsLoading ? (
-          <div>Loading...</div>
+          <span className="loading loading-spinner text-warning"></span>
         ) : allProducts ? (
           allProducts.map((card) => (
             <ProductCard key={card.id} cardData={card} />

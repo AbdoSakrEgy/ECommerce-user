@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 import ShoppingBagBadge from "../Atoms/ShoppingBagBadge";
 import { Link } from "react-router-dom";
+import Drawer from "../Molecules/Drawer";
 
 export default function Navbar() {
   const [color, setColor] = useState(true);
@@ -39,6 +40,9 @@ export default function Navbar() {
         <div className="relative">
           <Icon icon="ci:shopping-bag-02" width="40" />
           <ShoppingBagBadge />
+        </div>
+        <div>
+        <Drawer />
         </div>
       </div>
     </>
