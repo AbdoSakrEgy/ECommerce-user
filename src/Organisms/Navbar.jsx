@@ -12,8 +12,6 @@ export default function Navbar() {
   const [color, setColor] = useState(true);
   let location = useLocation();
   let locationPath = useLocation().pathname;
-  console.log(locationPath);
-  console.log(locationPath.startsWith("/ecommerce-app-clientside/product/"));
 
   useEffect(() => {
     changeColor();
@@ -22,7 +20,7 @@ export default function Navbar() {
   const changeColor = () => {
     //scroll points go up as the page is scrolled down
     if (window.scrollY <= 0) {
-      if (locationPath.startsWith("/ecommerce-app-clientside/product/")) {
+      if (locationPath.includes("/ecommerce-app-clientside/product/")) {
         setColor(false);
       } else {
         setColor(true);
