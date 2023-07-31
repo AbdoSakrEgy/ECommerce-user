@@ -10,11 +10,10 @@ import { useLocation } from "react-router-dom";
 export default function Navbar() {
   const dispatch = useDispatch();
   const [color, setColor] = useState(true);
-  // const [locationPath, setLocationPath] = useState(
-  //   useLocation().pathname.startsWith("/product/")
-  // );
   let location = useLocation();
   let locationPath = useLocation().pathname;
+  console.log(locationPath);
+  console.log(locationPath.pathname);
 
   useEffect(() => {
     changeColor();
