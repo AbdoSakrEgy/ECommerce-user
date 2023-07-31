@@ -1,8 +1,12 @@
 import React from "react";
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { addProductInCart } from "../Redux/productsSlice";
 
 export default function ProductCard({ cardData }) {
+  const dispatch = useDispatch();
+
   return (
     <>
       <div className="flex flex-col min-h-[450px] w-64 bg-base-100 shadow-none rounded-none mb-5">
@@ -12,9 +16,14 @@ export default function ProductCard({ cardData }) {
             src={cardData.image}
             alt={cardData.title}
           />
-          {/* -------- */}
+          {/* overlay buttons */}
           <div className="flex flex-col absolute top-6 -right-12 group-hover:right-5 transition-all duration-300">
-            <button className="flex justify-center items-center h-12 w-12 mb-2 shadow-xl bg-red-500 text-white">
+            <button
+              onClick={() => {
+                dispatch(addProductInCart(cardData));
+              }}
+              className="flex justify-center items-center h-12 w-12 mb-2 shadow-xl bg-red-500 text-white"
+            >
               <Icon icon="octicon:plus-16" width="20" />
             </button>
             <Link
@@ -24,7 +33,7 @@ export default function ProductCard({ cardData }) {
               <Icon icon="mdi:eye" color="black" width="20" />
             </Link>
           </div>
-          {/* -------- */}
+          {/* overlay buttons */}
         </div>
         <div className="h-[150px] overflow-hidden">
           <div className="opacity-70">{cardData.category}</div>

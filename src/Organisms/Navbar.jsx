@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 import ShoppingBagBadge from "../Atoms/ShoppingBagBadge";
 import { Link } from "react-router-dom";
-import Drawer from "../Molecules/Drawer";
+import { useSelector, useDispatch } from "react-redux";
+import { openCloseSidebar } from "../Redux/productsSlice";
+import Sidebar from "../Molecules/Sidebar";
 
 export default function Navbar() {
+  const dispatch = useDispatch();
   const [color, setColor] = useState(true);
 
   const changeColor = () => {
@@ -28,8 +31,8 @@ export default function Navbar() {
       <div
         className={
           color
-            ? "flex justify-between px-[10vw] py-5 sticky top-0 z-40 ease-in duration-200 bg-[#f5e6e0]"
-            : "flex justify-between px-[10vw] py-5 sticky top-0 z-40 shadow-lg ease-in duration-200 bg-white"
+            ? "flex justify-between px-[10vw] py-5 sticky top-0 z-20 ease-in duration-200 bg-[#f5e6e0]"
+            : "flex justify-between px-[10vw] py-5 sticky top-0 z-20 shadow-lg ease-in duration-200 bg-white"
         }
       >
         <div>
@@ -37,13 +40,16 @@ export default function Navbar() {
             <Icon icon="mdi:clothes-hanger" width="40" />
           </Link>
         </div>
-        <div className="relative">
+        <div
+          onClick={() => {
+            dispatch(openCloseSidebar());
+          }}
+          className="relative hover:cursor-pointer"
+        >
           <Icon icon="ci:shopping-bag-02" width="40" />
           <ShoppingBagBadge />
         </div>
-        <div>
-        <Drawer />
-        </div>
+        <Sidebar />
       </div>
     </>
   );

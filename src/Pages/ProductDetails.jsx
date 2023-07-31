@@ -30,7 +30,9 @@ export default function ProductDetails() {
       {productDetailsError ? (
         <>Oh no, there was an error</>
       ) : productDetailsIsLoading ? (
-        <span className="loading loading-spinner text-warning"></span>
+        <div className="flex flex-col lg:flex-row justify-center items-center h-[90%]">
+          <span className="loading loading-spinner text-warning loading-lg"></span>
+        </div>
       ) : productDetails ? (
         <div className="flex flex-col lg:flex-row justify-center items-center h-[90%]">
           <div className="mr-40">
