@@ -23,7 +23,7 @@ export default function Navbar() {
   const changeColor = () => {
     //scroll points go up as the page is scrolled down
     if (window.scrollY <= 0) {
-      if (locationPath.startsWith("/product/")) {
+      if (locationPath.startsWith("abdosakregy.github.io/ecommerce-app-clientside/product/")) {
         setColor(false);
       } else {
         setColor(true);
