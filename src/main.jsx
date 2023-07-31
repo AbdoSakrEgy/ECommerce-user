@@ -25,6 +25,21 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/abdosakregy.github.io/ecommerce-app-clientside/",
+    element: <Root />,
+    errorElement: <div>error 0-0</div>,
+    children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
+      {
+        path: "product/:productId",
+        element: <ProductDetails/>,
+      },
+    ],
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
