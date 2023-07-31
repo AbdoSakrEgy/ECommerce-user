@@ -26,7 +26,7 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/abdosakregy.github.io/ecommerce-app-clientside/",
+    path: "/ecommerce-app-clientside",
     element: <Root />,
     errorElement: <div>error 0-0</div>,
     children: [
