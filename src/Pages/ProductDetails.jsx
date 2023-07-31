@@ -1,11 +1,11 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useGetProductByIdQuery } from "../Redux/apiProductsSlice";
-import ShoppingBagBadge from "../Atoms/ShoppingBagBadge";
-import { Icon } from "@iconify/react";
+import { useSelector, useDispatch } from "react-redux";
+import { addProductInCart } from "../Redux/productsSlice";
 
 export default function ProductDetails() {
+  const dispatch = useDispatch();
+
   const { productId } = useParams();
   const {
     data: productDetails,
@@ -15,18 +15,6 @@ export default function ProductDetails() {
 
   return (
     <div className="flex flex-col h-screen">
-      <div className="flex justify-between px-[10vw] py-5 sticky top-0 z-40 ease-in duration-200 bg-white">
-        <div>
-          <Link to={"/"}>
-            <Icon icon="mdi:clothes-hanger" width="40" />
-          </Link>
-        </div>
-        <div className="relative">
-          <Icon icon="ci:shopping-bag-02" width="40" />
-          <ShoppingBagBadge />
-        </div>
-      </div>
-
       {productDetailsError ? (
         <>Oh no, there was an error</>
       ) : productDetailsIsLoading ? (
@@ -52,7 +40,10 @@ export default function ProductDetails() {
             <div className="mb-8 mx-auto max-w-[450px]">
               {productDetails.description}
             </div>
-            <button className="py-4 px-8 bg-black text-white">
+            <button
+              onClick={() => dispatch(addProductInCart(productDetails))}
+              className="py-4 px-8 bg-black text-white"
+            >
               Add to cart
             </button>
           </div>

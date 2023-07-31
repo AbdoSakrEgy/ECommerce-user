@@ -1,19 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import ShoppingBagBadge from "../Atoms/ShoppingBagBadge";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { openCloseSidebar } from "../Redux/productsSlice";
 import Sidebar from "../Molecules/Sidebar";
+import { useLocation } from "react-router-dom";
 
 export default function Navbar() {
   const dispatch = useDispatch();
   const [color, setColor] = useState(true);
+  // const [locationPath, setLocationPath] = useState(
+  //   useLocation().pathname.startsWith("/product/")
+  // );
+  let location = useLocation();
+  let locationPath = useLocation().pathname;
+
+  useEffect(() => {
+    changeColor();
+  }, [location]);
 
   const changeColor = () => {
     //scroll points go up as the page is scrolled down
     if (window.scrollY <= 0) {
-      setColor(true);
+      if (locationPath.startsWith("/product/")) {
+        setColor(false);
+      } else {
+        setColor(true);
+      }
       // console.log("true");
       // console.log(window.scrollY);
     } else {

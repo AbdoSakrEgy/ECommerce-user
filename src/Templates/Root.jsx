@@ -5,6 +5,7 @@ import Navbar from "../Organisms/Navbar";
 export default function Root() {
   return (
     <>
+      <Navbar />
       <Outlet />
     </>
   );
