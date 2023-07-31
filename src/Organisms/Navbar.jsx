@@ -13,7 +13,7 @@ export default function Navbar() {
   let location = useLocation();
   let locationPath = useLocation().pathname;
   console.log(locationPath);
-  console.log(locationPath.pathname);
+  console.log(locationPath.startsWith("/ecommerce-app-clientside/product/"));
 
   useEffect(() => {
     changeColor();
