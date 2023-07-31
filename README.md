@@ -13,7 +13,3 @@ A React + Redux application for browsing products, adding them to cart, and chec
 - Redux Toolkit
 - Redux query
 - RESTful API
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
