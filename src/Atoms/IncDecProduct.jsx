@@ -20,7 +20,7 @@ export default function IncDecProduct({ productInCart }) {
         >
           <Icon icon="ph:minus-bold" />
         </button>
-        <span className="mx-3">{productInCart.repeatNumInCart}</span>
+        <span className="mx-1">{productInCart.repeatNumInCart}</span>
         <button
           className="px-3"
           onClick={() => dispatch(addProductInCart(productInCart))}
