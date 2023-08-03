@@ -14,7 +14,7 @@ export default function ProductDetails() {
   } = useGetProductByIdQuery(productId);
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-screen px-5">
       {productDetailsError ? (
         <>Oh no, there was an error</>
       ) : productDetailsIsLoading ? (
@@ -23,15 +23,15 @@ export default function ProductDetails() {
         </div>
       ) : productDetails ? (
         <div className="flex flex-col lg:flex-row justify-center items-center h-[90%]">
-          <div className="mr-40">
+          <div className="lg:mr-20">
             <img
-              className="max-w-[200px] lg:max-w-[400px]"
+              className="max-w-[150px] lg:max-w-[400px]"
               src={productDetails.image}
               alt="image not found"
             />
           </div>
-          <div>
-            <div className="text-[26px] font-medium mb-2 mx-auto max-w-[450px]">
+          <div className="text-center lg:text-left">
+            <div className="lg:text-[26px] text-[20px] font-medium mb-2 mx-auto max-w-[450px]">
               {productDetails.title}
             </div>
             <div className="text-xl font-medium mb-6 mx-auto max-w-[450px] text-red-500">

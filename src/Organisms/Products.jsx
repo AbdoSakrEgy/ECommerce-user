@@ -16,7 +16,7 @@ export default function Products() {
 
   return (
     <>
-      <div className="flex justify-between items-center flex-wrap px-[10vw] pt-14">
+      <div className="flex justify-center items-center flex-wrap gap-16 px-[10vw] pt-14">
         {allProductsError ? (
           <div>Oh no, there was an error</div>
         ) : allProductsIsLoading ? (
