@@ -16,7 +16,7 @@ export default function ProductDetails() {
 
   return (
     <>
-      <Navbar firstColor={"#ffffff"} secondColor={"#ffffff"} />
+      <Navbar firstColor={"white"} secondColor={"white"} />
       <div className="flex flex-col h-screen px-5">
         {productDetailsError ? (
           <>Oh no, there was an error</>

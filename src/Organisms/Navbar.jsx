@@ -6,12 +6,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { openCloseSidebar } from "../Redux/productsSlice";
 import Sidebar from "../Molecules/Sidebar";
 import { useLocation } from "react-router-dom";
+import ProfileAvatar from "../Atoms/ProfileAvatar";
 
-export default function Navbar({ firstColor, secondColor }) {
+export default function Navbar({ isInHomePage }) {
   const dispatch = useDispatch();
   const [isNavbarTopSite, setIsNavbarTopSite] = useState(true);
-
-  const [style, setStyle] = useState(null);
+  const [isNavbarInHomePage, setIsNavbarInHomePage] = useState(false);
 
   useEffect(() => {
     changeColor();
@@ -21,14 +21,10 @@ export default function Navbar({ firstColor, secondColor }) {
     //scroll points go up as the page is scrolled down
     if (window.scrollY <= 0) {
       setIsNavbarTopSite(true);
-      setStyle(
-        `flex justify-between px-[10vw] py-5 sticky top-0 z-20 ease-in duration-200 bg-[${firstColor}]`
-      );
+      setIsNavbarInHomePage(isInHomePage);
     } else {
       setIsNavbarTopSite(false);
-      setStyle(
-        `flex justify-between px-[10vw] py-5 sticky top-0 z-20 ease-in duration-200 shadow-lg bg-[${secondColor}]`
-      );
+      setIsNavbarInHomePage(isInHomePage);
     }
   };
   // every part of this function is necessary.
@@ -38,26 +34,30 @@ export default function Navbar({ firstColor, secondColor }) {
   return (
     <>
       <div
-        // className={
-        //   isNavbarTopSite
-        //     ? `flex justify-between px-[10vw] py-5 sticky top-0 z-20 ease-in duration-200 bg-[#f5e6e0]`
-        //     : `flex justify-between px-[10vw] py-5 sticky top-0 z-20 shadow-lg ease-in duration-200 bg-[#ffffff]`
-        // }
-        className={style}
+        className={
+          isNavbarTopSite
+            ? isNavbarInHomePage
+              ? "flex justify-between px-[10vw] py-5 sticky top-0 z-20 ease-in duration-200 bg-[#f5e6e0]"
+              : "flex justify-between px-[10vw] py-5 sticky top-0 z-20 ease-in duration-200 bg-[#ffffff]"
+            : `flex justify-between px-[10vw] py-5 sticky top-0 z-20 shadow-lg ease-in duration-200 bg-[#ffffff]`
+        }
       >
         <div>
           <Link to={"/ecommerce-app-clientside"}>
             <Icon icon="mdi:clothes-hanger" width="40" />
           </Link>
         </div>
-        <div
-          onClick={() => {
-            dispatch(openCloseSidebar());
-          }}
-          className="relative hover:cursor-pointer"
-        >
-          <Icon icon="ci:shopping-bag-02" width="40" />
-          <ShoppingBagBadge />
+        <div className="flex justify-between gap-5">
+          <div
+            onClick={() => {
+              dispatch(openCloseSidebar());
+            }}
+            className="relative hover:cursor-pointer"
+          >
+            <Icon icon="ci:shopping-bag-02" width="40" />
+            <ShoppingBagBadge />
+          </div>
+          <ProfileAvatar />
         </div>
         <Sidebar />
       </div>

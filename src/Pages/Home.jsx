@@ -7,7 +7,7 @@ import Navbar from "../Organisms/Navbar";
 export default function Home() {
   return (
     <>
-      <Navbar firstColor={"#f5e6e0"} secondColor={"#ffffff"} />
+      <Navbar isInHomePage={true} />
       <Hero />
       <Products />
       <Footer />
