@@ -6,25 +6,27 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./Templates/Root.jsx";
 import { Provider } from "react-redux";
 import { store } from "./Redux/store.js";
-import HomePage from "./Pages/HomePage.jsx";
+import Home from "./Pages/Home.jsx";
 import ProductDetails from "./Pages/ProductDetails.jsx";
+import Login from "./Pages/Login.jsx";
+import Register from "./Pages/Register.jsx";
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-    errorElement: <div>error 0-0</div>,
-    children: [
-      {
-        index: true,
-        element: <HomePage />,
-      },
-      {
-        path: "product/:productId",
-        element: <ProductDetails/>,
-      },
-    ],
-  },
+  // {
+  //   path: "/",
+  //   element: <Root />,
+  //   errorElement: <div>error 0-0</div>,
+  //   children: [
+  //     {
+  //       index: true,
+  //       element: <Home />,
+  //     },
+  //     {
+  //       path: "product/:productId",
+  //       element: <ProductDetails/>,
+  //     },
+  //   ],
+  // },
   {
     path: "/ecommerce-app-clientside",
     element: <Root />,
@@ -32,12 +34,20 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <HomePage />,
+        element: <Home />,
       },
       {
         path: "product/:productId",
         element: <ProductDetails/>,
       },
+      {
+        path: "login",
+        element: <Login/>,
+      },
+      {
+        path: "register",
+        element: <Register/>
+      }
     ],
   },
 ]);

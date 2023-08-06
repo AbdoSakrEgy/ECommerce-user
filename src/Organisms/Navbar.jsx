@@ -7,30 +7,28 @@ import { openCloseSidebar } from "../Redux/productsSlice";
 import Sidebar from "../Molecules/Sidebar";
 import { useLocation } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar({ firstColor, secondColor }) {
   const dispatch = useDispatch();
-  const [color, setColor] = useState(true);
-  let location = useLocation();
-  let locationPath = useLocation().pathname;
+  const [isNavbarTopSite, setIsNavbarTopSite] = useState(true);
+
+  const [style, setStyle] = useState(null);
 
   useEffect(() => {
     changeColor();
-  }, [location]);
+  }, []);
 
   const changeColor = () => {
     //scroll points go up as the page is scrolled down
     if (window.scrollY <= 0) {
-      if (locationPath.includes("/ecommerce-app-clientside/product/")) {
-        setColor(false);
-      } else {
-        setColor(true);
-      }
-      // console.log("true");
-      // console.log(window.scrollY);
+      setIsNavbarTopSite(true);
+      setStyle(
+        `flex justify-between px-[10vw] py-5 sticky top-0 z-20 ease-in duration-200 bg-[${firstColor}]`
+      );
     } else {
-      setColor(false);
-      // console.log("false");
-      // console.log(window.scrollY);
+      setIsNavbarTopSite(false);
+      setStyle(
+        `flex justify-between px-[10vw] py-5 sticky top-0 z-20 ease-in duration-200 shadow-lg bg-[${secondColor}]`
+      );
     }
   };
   // every part of this function is necessary.
@@ -40,14 +38,15 @@ export default function Navbar() {
   return (
     <>
       <div
-        className={
-          color
-            ? "flex justify-between px-[10vw] py-5 sticky top-0 z-20 ease-in duration-200 bg-[#f5e6e0]"
-            : "flex justify-between px-[10vw] py-5 sticky top-0 z-20 shadow-lg ease-in duration-200 bg-white"
-        }
+        // className={
+        //   isNavbarTopSite
+        //     ? `flex justify-between px-[10vw] py-5 sticky top-0 z-20 ease-in duration-200 bg-[#f5e6e0]`
+        //     : `flex justify-between px-[10vw] py-5 sticky top-0 z-20 shadow-lg ease-in duration-200 bg-[#ffffff]`
+        // }
+        className={style}
       >
         <div>
-          <Link to={"/"}>
+          <Link to={"/ecommerce-app-clientside"}>
             <Icon icon="mdi:clothes-hanger" width="40" />
           </Link>
         </div>
