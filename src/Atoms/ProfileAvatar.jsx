@@ -1,5 +1,6 @@
 import React from "react";
 import profileimg from "../assets/img/Personal image.jpeg";
+import { Link } from "react-router-dom";
 
 export default function ProfileAvatar() {
   return (
@@ -19,6 +20,16 @@ export default function ProfileAvatar() {
           </li>
           <li>
             <a>Settings</a>
+          </li>
+          <li>
+            <Link to="/ecommerce-app-clientside/signup">
+              Signup <div className="badge badge-primary">Test</div>
+            </Link>
+          </li>
+          <li>
+            <Link to="/ecommerce-app-clientside/login">
+              Login <div className="badge badge-primary">Test</div>
+            </Link>
           </li>
           <li>
             <a>Logout</a>
