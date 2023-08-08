@@ -12,12 +12,13 @@ export const apiProductsSlice = createApi({
     getProductById: builder.query({
       query: (id) => `products/${id}`,
     }),
-    getProductByName: builder.query({
-      query: (name) => `products/category/${name}`,
-    }),
   }),
 })
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetAllProductsQuery,useGetProductByIdQuery,useGetProductByNameQuery } = apiProductsSlice
+export const { 
+  useGetAllProductsQuery,
+  useGetProductByIdQuery,
+ } = apiProductsSlice
+
