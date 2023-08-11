@@ -12,6 +12,7 @@ A React + Redux application for browsing products, adding them to cart, and chec
 - React
 - ReduxToolkit / ReduxQuery
 - RESTful API
+- React router dom
 - TailwindCSS
 - daisyUI (UI library)
 - react hook form
