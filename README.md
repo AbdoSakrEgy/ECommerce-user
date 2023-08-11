@@ -10,9 +10,11 @@ A React + Redux application for browsing products, adding them to cart, and chec
 
 ## Technologies
 - React
-- Redux Toolkit
-- Redux query
+- ReduxToolkit / ReduxQuery
 - RESTful API
+- TailwindCSS
+- daisyUI (UI library)
+- react hook form
 
 ## DEMO
 https://abdosakregy.github.io/ecommerce-app-clientside/
