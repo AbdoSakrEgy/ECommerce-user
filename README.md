@@ -10,7 +10,7 @@ A React + Redux application for browsing products, adding them to cart, and chec
 
 ## Technologies
 - React
-- ReduxToolkit / ReduxQuery
+- ReduxToolkit / RTKQuery
 - RESTful API
 - React router dom
 - TailwindCSS
