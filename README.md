@@ -9,7 +9,7 @@ A React + Redux application for browsing products, adding them to cart, and chec
 - User registration and login
 
 ## Technologies
-- React
+- React (Vite)
 - ReduxToolkit / RTKQuery
 - RESTful API
 - React router dom
