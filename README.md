@@ -1,4 +1,4 @@
-# Ecommerce App Clientside
+# ECommerce-user
 
 A React + Redux application for browsing products, adding them to cart, and checking out. It includes user registration and login.
 
