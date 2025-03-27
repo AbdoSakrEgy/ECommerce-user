@@ -28,7 +28,7 @@ const router = createBrowserRouter([
   //   ],
   // },
   {
-    path: "/ecommerce-app-clientside",
+    path: "/ECommerce-user",
     element: <Root />,
     errorElement: <div>error 0-0</div>,
     children: [
